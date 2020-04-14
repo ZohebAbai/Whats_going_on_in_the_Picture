@@ -1,5 +1,4 @@
 import os
-from werkzeug.utils import secure_filename
 from pickle import load
 from tensorflow.keras.models import load_model
 from flask import Flask, request, render_template
@@ -20,11 +19,12 @@ def predict():
 			print('Image not uploaded')
 			return
 		image = request.files['file']
-		image.save(os.path.join('images', secure_filename(image.filename)))
-		feature = extract_features(str('./images/'+image.filename))
+		image.filename = 'upload.jpg'
+		image.save(os.path.join('static',image.filename))
+		feature = extract_features('./static/upload.jpg')
 		# load model and tokenizer
 		tokenizer = load(open('./model/tokenizer.pkl', 'rb'))
-		model = load_model('./model/model_4.h5')
+		model = load_model('./model/model.h5')
 		description = generate_desc(model, tokenizer, feature, max_length)
 		return render_template('result.html', description=description[8:-6])
 
