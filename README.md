@@ -2,6 +2,8 @@
 
 AI describing an Image.
 
+Check out the app : [Whats going on in the Picture](https://whats-going-on-in-the-picture.herokuapp.com/)
+
 While deploying an app on Heroku, these two points are important:
 
 1. **Slug Size:** Heroku provides a max slug size of 500 MB, the total data an app can hold after compression.
