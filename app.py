@@ -20,7 +20,6 @@ def predict():
 			return
 		image = request.files['file']
 		image.filename = 'upload.jpg'
-		os.remove('./static/upload.jpg')
 		image.save(os.path.join('static',image.filename))
 		feature = extract_features('./static/upload.jpg')
 		# load model and tokenizer
