@@ -1,6 +1,5 @@
 import os
 from pickle import load
-from tensorflow.keras.models import load_model
 from flask import Flask, request, render_template
 from predict import *
 
