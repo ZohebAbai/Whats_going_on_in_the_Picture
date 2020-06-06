@@ -1,0 +1,63 @@
+{% extends "base2.html" %}
+{% block body_block %}
+
+<h2>Whats_going_on_in_the_Picture</h2>
+<h5>Please upload yout JPEG image below</h5>
+<br>
+
+<form  action="{% url "list" %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <p> {{ form.non_field_errors }}</p>
+
+  <p>{{ form.imagfile.label_tag }}
+    {{ form.imagefile.help_text }}
+  </p>
+
+  <p> {{ form.imagefile.erros }}
+      {{ form.imagefile }}
+  </p>
+
+  <p> <input type="submit" name="upload_img" value="Upload">
+  </p>
+
+</form>
+
+{% if documents %}
+
+
+  <img src="{{ image_path1 }}" alt="" style ="position:absolute;height:350px; top:80px; left:600px; width:550px; border: #000000 6px outset" >
+
+  <div style = "display:inline-block; position:absolute; height:320px; top: 430px ;left:600px; width:550px", id="image_ex">
+
+  <p> <input type="submit" value="Click to Generate Caption" style="background-color : Yellow; height:50px;" id="image_process"> </p>
+
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("#image_process").click(function(){
+
+      $('#image_ex').html('<img src="/static/thinking.gif" width ="300" height="70"> Whats_going_on_in_the_Picture?')
+
+      $.ajax({url: "/prediction/",
+             type : 'get',
+             success: function(results){
+               $('#image_ex').html(results);
+
+              var div = document.getElementById('image_ex');
+
+              div.innerHTML = div.innerHTML + '<br/>';
+              div.innerHTML = div.innerHTML + "<span style='color: red'>"+"Results:".fontsize(6) ;
+              div.innerHTML = div.innerHTML +  results.caption;
+              div.innerHTML = div.innerHTML + '<br/>';
+              div.innerHTML = div.innerHTML + '______________________________________________________________________';
+             }
+      });
+    });
+  });
+  </script>
+
+  </div>
+
+{% endif %}
+{% endblock %}
