@@ -27,7 +27,7 @@ SECRET_KEY = 'j!+pow^=(0@x3fy%wsiij&o-r($s1@x8y^=n+shs9^^5($bctz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://whats-going-on-in-the-picture.herokuapp.com', '.herokuapp.com']
 
 
 # Application definition
