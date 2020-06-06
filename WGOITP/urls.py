@@ -24,4 +24,4 @@ urlpatterns = [
     path('list/', views.list, name='list'),
     path('prediction/', views.prediction, name='prediction'),
     path('', views.index, name='index')
-] + static( settings.PIC_URL, document_root = settings.PIC_ROOT)
+] + static(settings.PIC_URL, document_root = settings.PIC_ROOT)

@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR=os.path.join(BASE_DIR, 'templates')
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
 PIC_DIR = os.path.join(BASE_DIR, 'images')
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +24,7 @@ PIC_DIR = os.path.join(BASE_DIR, 'images')
 SECRET_KEY = 'j!+pow^=(0@x3fy%wsiij&o-r($s1@x8y^=n+shs9^^5($bctz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://whats-going-on-in-the-picture.herokuapp.com', '.herokuapp.com']
 
@@ -121,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[STATIC_DIR,]
+STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
 
 #PIC
 PIC_ROOT = PIC_DIR
