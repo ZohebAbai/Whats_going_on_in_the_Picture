@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
-# Activate Django-Heroku.
-django_heroku.settings(locals())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,9 +25,9 @@ PIC_DIR = os.path.join(BASE_DIR, 'images')
 SECRET_KEY = 'j!+pow^=(0@x3fy%wsiij&o-r($s1@x8y^=n+shs9^^5($bctz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -129,3 +127,6 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
 #PIC
 PIC_ROOT = PIC_DIR
 PIC_URL='/images/'
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
