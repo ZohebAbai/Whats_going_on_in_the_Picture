@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from captiongen import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('list/', views.list, name='list'),
+    path('prediction/', views.prediction, name='prediction'),
+    path('', views.index, name='index')
+] + static( settings.PIC_URL, document_root = settings.PIC_ROOT)

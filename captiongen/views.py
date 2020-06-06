@@ -48,7 +48,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-from tensorflow.keras.models import Model
+from tensorflow.keras.models import Model, load_model
 import os, json
 from pickle import load
 
@@ -121,7 +121,8 @@ def prediction(request):
     tokenizer = load(open('model/tokenizer.pkl', 'rb'))
     model = load_model('model/model.h5')
     description = generate_desc(model, tokenizer, feature, max_length)
-    context = {'description' = description[8:-6]}
+    caption = description[8:-6]
+    context = {'caption' : caption}
 
     src= 'images/'
     for image_file_name in os.listdir(src):

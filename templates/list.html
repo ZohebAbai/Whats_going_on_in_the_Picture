@@ -37,7 +37,7 @@
   $(document).ready(function(){
     $("#image_process").click(function(){
 
-      $('#image_ex').html('<img src="/static/thinking.gif" width ="300" height="70"> Whats_going_on_in_the_Picture?')
+      $('#image_ex').html('<img src="/static/thinking.gif" width ="300" height="75"> Whats going on in the Picture?')
 
       $.ajax({url: "/prediction/",
              type : 'get',
@@ -47,10 +47,10 @@
               var div = document.getElementById('image_ex');
 
               div.innerHTML = div.innerHTML + '<br/>';
-              div.innerHTML = div.innerHTML + "<span style='color: red'>"+"Results:".fontsize(6) ;
+              div.innerHTML = div.innerHTML + "<span style='color: black'>"+"Caption:  ".fontsize(3) ;
               div.innerHTML = div.innerHTML +  results.caption;
               div.innerHTML = div.innerHTML + '<br/>';
-              div.innerHTML = div.innerHTML + '______________________________________________________________________';
+              div.innerHTML = div.innerHTML + '______________________________________________________________________________';
              }
       });
     });
