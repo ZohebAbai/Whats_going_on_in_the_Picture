@@ -3,8 +3,8 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.urls import reverse
 
-from captiongen.models import PicUpload
-from captiongen.forms import ImageForm
+from .models import PicUpload
+from .forms import ImageForm
 
 # Create your views here.
 def index(request):
