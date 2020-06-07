@@ -7,3 +7,5 @@ Check out the app : [Whats going on in the Picture](https://whats-going-on-in-th
 ![Screenshot 1](./static/shot1.png)
 
 ![Screenshot 2](./static/shot2.png)
+
+A modified deeplearning model (from [here](https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/)) was trained for this.
